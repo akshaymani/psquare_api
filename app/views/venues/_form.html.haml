@@ -1,0 +1,41 @@
+%fieldset
+  %p.file
+    = f.label :image
+    %br/
+    = f.file_field :image
+    
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+
+  %p
+    = f.label :address_1
+    %br/
+    = f.text_field :address_1
+
+  %p
+    = f.label :address_2
+    %br/
+    = f.text_field :address_2
+
+  %p
+    = f.label :address_city
+    %br/
+    = f.text_field :address_city
+
+  %p
+    = f.label :address_state
+    %br/
+    = f.select :address_state, USStates.collect { |c| [c[0], c[1]] }
+
+  %p
+    = f.label :address_zipcode
+    %br/
+    = f.text_field :address_zipcode
+
+  %p.submit
+    = f.submit "Save"
+  
+
+

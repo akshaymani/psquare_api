@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110216185748) do
+ActiveRecord::Schema.define(:version => 20110217232422) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -29,5 +29,22 @@ ActiveRecord::Schema.define(:version => 20110216185748) do
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["id", "confirmation_token"], :name => "index_users_on_id_and_confirmation_token"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "venues", :force => true do |t|
+    t.string   "name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zipcode"
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
 end
