@@ -1,0 +1,14 @@
+#main
+  .box
+    -form_for :session, :url => session_path do |form|
+      %fieldset
+        %p
+          =form.label :email
+          =form.text_field :email, :autocomplete => "off"
+      
+        %p
+          =form.label :password
+          =form.password_field :password
+      
+        %p.submit
+          = form.submit "Sign in", :disable_with => "Please wait...", :class=>"btn html-form-submit"
