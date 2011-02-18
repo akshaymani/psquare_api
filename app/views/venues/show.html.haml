@@ -4,6 +4,15 @@
   = @venue.name
 :plain
   <div id="map_canvas" style="width:50%; height:50%"></div>
+  
+%p
+  = link_to "Check in Here", new_venue_checkin_path(@venue)
+  
+- @venue.checkins.each do |checkin|
+  %p
+    = checkin.user.nickname
+
+
 
 %p
   = link_to "Add a Tip", new_venue_tip_path(@venue)

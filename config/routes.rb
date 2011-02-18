@@ -6,7 +6,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :venues do |venues|
     venues.resources :tips
+    venues.resources :checkins
   end
+  
+  map.root :controller => "venues", :action => "index"
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
