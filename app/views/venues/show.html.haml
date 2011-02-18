@@ -1,9 +1,7 @@
-
-
 = render :partial => "single_venue_script", :locals => { :venue => @venue }
 
+%h1
+  = @venue.name
 :plain
-  <body onload="initialize()">
-    <div id="map_canvas" style="width:50%; height:50%"></div>
-  </body>
-  </html>
+  <div id="map_canvas" style="width:50%; height:50%"></div>
+  
