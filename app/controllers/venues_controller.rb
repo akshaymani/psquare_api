@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   def index
-    @venues = Venue.all
+    @venues = Venue.all_near(session[:user_loc][:lat], session[:user_loc][:lng])
   end
 
   def new

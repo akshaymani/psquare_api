@@ -1,5 +1,11 @@
+- content_for :scripts do
+  = render :partial => "multiple_venue_script", :locals => { :venues => @venues }
+
 %h1 Venues
+  
+#map_canvas{:style => "width:50%; height:400px;"}
 
 - @venues.each do |venue|
   %p
     = link_to venue.name, venue_path(venue)
+

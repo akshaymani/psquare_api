@@ -26,4 +26,9 @@ class Venue < ActiveRecord::Base
     errors.add(:address, "Could not Geocode address") if !geo.success
     self.lat, self.lng = geo.lat,geo.lng if geo.success
   end
+  
+  # Get all the venues near the user's current location.
+  def self.all_near(lat, lng)
+    find(:all, :origin => [lat, lng], :within => 5)
+  end
 end

@@ -1,17 +1,27 @@
 <script type="text/javascript">
   function initialize() {
     // Set the center of the map around the user's current location.
-    var venue_loc = new google.maps.LatLng(<%= venue.lat %>, <%= venue.lng %>);
+    var user_loc = new google.maps.LatLng(<%= session[:user_loc][:lat] %>, <%= session[:user_loc][:lng] %>);
     var myOptions = {
-      zoom: 15,
-      center: venue_loc,
+      zoom: 12,
+      center: user_loc,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     
-    var venue = [[ "<%= venue.name %>", <%= venue.lat %>, <%= venue.lng %> ]]
-    set_markers(map, venue);
+    var venues = [
+      <% @venues.each_with_index do |venue, i| %>
+        <% if i < @venues.count - 1 %>
+          [ '<%= venue.name %>', <%= venue.lat %>, <%= venue.lng %> ],
+        <% else %>
+          [ '<%= venue.name %>', <%= venue.lat %>, <%= venue.lng %> ]
+        <% end %>
+      <% end %>
+    ];
+    set_markers(map, venues);
   }
+  
+
   
   function set_markers(map, locations) {
     for (var i = 0; i < locations.length; i++) {
