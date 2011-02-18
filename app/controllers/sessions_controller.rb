@@ -4,8 +4,6 @@ class SessionsController < Clearance::SessionsController
   skip_before_filter :authenticate, :only => [:new, :create, :destroy]
   protect_from_forgery :except => :create
   filter_parameter_logging :password
-  
-  layout "admin"
 
   def new
     render :template => 'sessions/new'
@@ -56,7 +54,7 @@ class SessionsController < Clearance::SessionsController
   end
 
   def url_after_create
-    admin_root_path
+    root_path
   end
 
   def flash_success_after_destroy

@@ -1,0 +1,26 @@
+- if signed_in?
+  %fieldset
+    %p.file
+      = f.label :image
+      %br/
+      = f.file_field :image
+    
+    %p
+      = f.label :body
+      %br/
+      = f.text_area :body
+    
+    %p
+      = f.hidden_field :user_id, :value => current_user.id
+
+
+    %p.submit
+      = f.submit "Save"
+- else
+  %p
+    You must
+    = link_to "Sign in", sign_in_path
+    to use this feature.
+  
+
+

@@ -4,4 +4,15 @@
   = @venue.name
 :plain
   <div id="map_canvas" style="width:50%; height:50%"></div>
+
+%p
+  = link_to "Add a Tip", new_venue_tip_path(@venue)
   
+- @venue.tips.each do |tip|
+  %p
+    = tip.body
+    %br/
+    (Added by:
+    = tip.user.nickname
+    )
+
