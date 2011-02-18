@@ -18,11 +18,11 @@ class VenuesController < ApplicationController
   end
 
   def edit
-    @venue = Venue.find_by_permalink(params[:id])
+    @venue = Venue.find(params[:id])
   end
   
   def update
-    @venue = Venue.find_by_permalink(params[:id])
+    @venue = Venue.find(params[:id])
     if @venue.update_attributes(params[:venue])
       redirect_to venue_path(@venue)
       flash[:notice] = "Venue saved."
@@ -32,11 +32,11 @@ class VenuesController < ApplicationController
   end
 
   def show
-    @venue = Venue.find_by_permalink(params[:id])
+    @venue = Venue.find(params[:id])
   end
   
   def destroy
-    @venue = Venue.find_by_permalink(params[:id])
+    @venue = Venue.find(params[:id])
     @venue.delete
     redirect_to venues_path
     flash[:notice] = "Venue deleted."

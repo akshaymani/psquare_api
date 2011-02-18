@@ -1,2 +1,9 @@
-<h1>Venues#show</h1>
-<p>Find me in app/views/venues/show.html.erb</p>
+
+
+= render :partial => "single_venue_script", :locals => { :venue => @venue }
+
+:plain
+  <body onload="initialize()">
+    <div id="map_canvas" style="width:50%; height:50%"></div>
+  </body>
+  </html>
