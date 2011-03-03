@@ -5,3 +5,4 @@ geokit
 clearance -v 0.8.8
 haml
 paperclip
+aws-s3 
