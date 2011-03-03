@@ -1,0 +1,7 @@
+rails -v 2.3.8
+mislav-will_paginate --version '~>2.2.3' --source http://gems.github.com
+right_aws
+geokit
+clearance -v 0.8.8
+haml
+paperclip
